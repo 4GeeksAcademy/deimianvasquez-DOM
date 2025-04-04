@@ -94,7 +94,7 @@ let btnSaludar = document.querySelector("#btnSaludar")
 
 
 
-btnSaludar.addEventListener("click", (event)=>{
+btnSaludar.addEventListener("click", (event) => {
     console.log(event.target)
     event.target.innerHTML = "Saludar otra vez"
 })
@@ -107,12 +107,26 @@ const p = document.createElement("p")
 
 
 
-input.addEventListener("input", (event)=>{
+input.addEventListener("input", (event) => {
     console.log(event.target.value)
     p.innerHTML = event.target.value
 
 })
 
 body.appendChild(p)
+
+
+const btnClickMe = document.querySelector("#btnClick")
+
+let counter = 0
+function mostrarmensaje() {
+    if (counter <= 2) {
+        alert("Hola, soy el mensaje")
+        counter++
+    } else {
+        btnClickMe.removeEventListener("click", mostrarmensaje)
+    }
+}
+btnClickMe.addEventListener("click", mostrarmensaje)
 
 
